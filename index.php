@@ -2,7 +2,49 @@
 <body>
 <?php
 include('header.php');
+
 ?>
+
+<link rel="stylesheet" href="css/style_thuva.css" type="text/css" media="all" />
+
+<!---------------------------- Carousel Banner -start -------------------------------->
+<div id="bannerCarousel" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#bannerCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#bannerCarousel" data-slide-to="1"></li>
+		<li data-target="#bannerCarousel" data-slide-to="2"></li>
+	</ol>
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner">
+		<div class="item active">
+			<img class="carousel-banner-img" src="images/banners/blackwidow.jpg" alt="Black Widow">
+			<div class="carousel-caption carousel-banner-title">
+				<h3><a href="about.php?id=11">Black Widow</a></h3>
+			</div>
+		</div>
+
+		<div class="item">
+			<img class="carousel-banner-img" src="images/banners/zsjl.jpg" alt="ZSJL">
+			<div class="carousel-caption carousel-banner-title">
+				<h3>Zack Snyder's Justic League</h3>
+			</div>
+		</div>
+	</div>
+
+	<!-- Left and right controls -->
+	<a class="left carousel-control" href="#bannerCarousel" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#bannerCarousel" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+<!----------------------------- Carousel Banner - end ------------------------------->
+
 
 <div class="content">
 	<div class="wrap">
