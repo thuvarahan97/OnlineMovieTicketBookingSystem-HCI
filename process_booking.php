@@ -16,37 +16,67 @@ if(!isset($_SESSION['user']))
 <div class="content">
 	<div class="wrap">
 		<div class="content-top">
-			<h3>Payment</h3>
+            <div >
+		    	<center><h3>Payment</h3></center>
+            </div>
+            
 			<form action="bank.php" method="post" id="form1">
-			<div class="col-md-4 col-md-offset-4" style="margin-bottom:50px">
-			<div class="form-group">
-   <label class="control-label">Name on Card</label>
-    <input type="text" class="form-control" name="name">
-</div>
-<div class="form-group">
-   <label class="control-label">Card Number</label>
-    <input type="text" class="form-control" name="number" required title="Enter 16 digit card number">
-  
-</div>      
-<div class="form-group">
-   <label class="control-label">Expiration date</label>
-    <input type="date" class="form-control" name="date">
-</div>
-<div class="form-group">
-   <label class="control-label">CVV</label>
-    <input type="text" class="form-control" name="cvv">
-</div>
-<div class="form-group">
-    <button class="btn btn-success">Make Payment</button>
-    </form>
-</div>
-</div>
+            
+			<div class="col-md-4 col-md-offset-4" style="
+                    padding: 20px;
+                    border: 1px solid darkorange;
+                    border-radius: 8px;">
+			    <div class="form-group">
+                    <label class="control-label">Name on Card</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Card Number</label>
+                     <input type="text" class="form-control" id="number" name="number" required title="Enter 16 digit card number"
+                     placeholder='xxxx xxxx xxxx xxxx' maxlength='19'
+                    >
+                    <script type="text/javascript">     
+                        // enable spacing for credit card number     
+                        $('#number').on('keyup', function(e){         
+                            var val = $(this).val();         
+                            var newval = '';         
+                            val = val.replace(/\s/g, ''); 
+                            
+                            // iterate to letter-spacing after every 4 digits   
+                            for(var i = 0; i < val.length; i++) {             
+                            if(i%4 == 0 && i > 0) newval = newval.concat(' ');             
+                            newval = newval.concat(val[i]);         
+                            }        
+
+                            // format in same input field 
+                            $(this).val(newval);     
+                        });   
+                    </script>
+                </div>      
+                <div class="form-group">
+                <label class="control-label">Expiration date</label>
+                    <input type="date" class="form-control" name="date">
+                </div>
+                <div class="form-group">
+                <label class="control-label">CVV</label>
+                    <input type="text" class="form-control" name="cvv" placeholder='xxx'>
+                </div>
+                <div class="form-group" >
+                    <center><button class="btn btn-success">PAY ME</button></center>
+                </div>
+            </div>
+            </form>
+          
+        </div>
+`       </div>
 			</div>
 			
 		<div class="clear"></div>	
 		
 	</div>
+    <div style="padding:20px"></div>
 <?php include('footer.php');?>
+
 </div>
 <?php
     session_start();
@@ -75,8 +105,8 @@ if(!isset($_SESSION['user']))
                 validators: {notEmpty: {
                         message: 'The Card Number is required and can\'t be empty'
                     },stringLength: {
-                    min: 16,
-                    max: 16,
+                    min: 19,
+                    max: 19,
                     message: 'The Card Number must 16 characters long'
                 },regexp: {
                         regexp: /^[0-9 ]+$/,
