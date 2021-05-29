@@ -27,7 +27,7 @@ if(!isset($_SESSION['user']))
    <label class="control-label">Card Number</label>
     <input type="text" class="form-control" name="number" required title="Enter 16 digit card number">
   
-</div>      
+</div>
 <div class="form-group">
    <label class="control-label">Expiration date</label>
     <input type="date" class="form-control" name="date">
@@ -42,7 +42,7 @@ if(!isset($_SESSION['user']))
 </div>
 </div>
 			</div>
-			
+
 		<div class="clear"></div>	
 		
 	</div>
