@@ -7,15 +7,15 @@
 		<div class="content-top">
 				<div class="section group">
 					<div class="about span_1_of_2">	
-						<h3 style="color:#444; font-size:23px;" class="text-center"><?php echo $movie['movie_name']; ?></h3>	
+						<h3 style="color:#000080; font-size:25px;" class="text-center"><?php echo $movie['movie_name']; ?></h3>
 							<div class="about-top">	
 								<div class="grid images_3_of_2">
 									<img src="<?php echo $movie['image']; ?>" alt=""/>
 								</div>
 								<div class="desc span_3_of_2">
-									<p class="p-link" style="font-size:15px"><b>Cast : </b><?php echo $movie['cast']; ?></p>
-									<p class="p-link" style="font-size:15px"><b>Release Date : </b><?php echo date('d-M-Y',strtotime($movie['release_date'])); ?></p>
-									<p style="font-size:15px"><?php echo $movie['desc']; ?></p>
+									<p class="p-link" style="color:#000080; font-size:15px"><b>Cast : </b><?php echo $movie['cast']; ?></p>
+									<p class="p-link" style="color:#000080; font-size:15px"><b>Release Date : </b><?php echo date('d-M-Y',strtotime($movie['release_date'])); ?></p>
+									<p style="color:#000080; font-size:15px"><?php echo $movie['desc']; ?></p>
 									<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="watch_but" style="text-decoration:none;">Watch Trailer</a>
 								</div>
 								<div class="clear"></div>
@@ -24,7 +24,7 @@
 							if(mysqli_num_rows($s))
 							{?>
 							<table class="table table-hover table-bordered text-center">
-								<h3 style="color:#444;" class="text-center">Available Shows</h3>
+								<h3 style="color:#000080;" class="text-center">Available Shows</h3>
 
 								<thead>
 										<tr>
