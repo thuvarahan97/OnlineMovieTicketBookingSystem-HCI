@@ -17,21 +17,19 @@ if(!isset($_SESSION['user']))
 	<div class="wrap">
 		<div class="content-top">
             <div >
-		    	<center><h3>Payment</h3></center>
+		    	<center><h3 style="font-family:Georgia;">PAY HERE</h3></center>
             </div>
             
 			<form action="bank.php" method="post" id="form1">
             
-			<div class="col-md-4 col-md-offset-4" style="
-                    padding: 20px;
-                    border: 1px solid darkorange;
-                    border-radius: 8px;">
+			<div class="col-md-4 col-md-offset-4">
+            <div class="thumbnail" style="padding:20px;background-color:#F8F8F8">
 			    <div class="form-group">
-                    <label class="control-label">Name on Card</label>
+                    <label class="control-label" style="font-family:Georgia;">Name on Card</label>
                     <input type="text" class="form-control" name="name">
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Card Number</label>
+                    <label class="control-label" style="font-family:Georgia;">Card Number</label>
                      <input type="text" class="form-control" id="number" name="number" required title="Enter 16 digit card number"
                      placeholder='xxxx xxxx xxxx xxxx' maxlength='19'
                     >
@@ -54,16 +52,17 @@ if(!isset($_SESSION['user']))
                     </script>
                 </div>      
                 <div class="form-group">
-                <label class="control-label">Expiration date</label>
+                <label class="control-label" style="font-family:Georgia;">Expiration date</label>
                     <input type="date" class="form-control" name="date">
                 </div>
                 <div class="form-group">
-                <label class="control-label">CVV</label>
-                    <input type="text" class="form-control" name="cvv" placeholder='xxx'>
+                <label class="control-label" style="font-family:Georgia;">CVV</label>
+                    <input type="text" class="form-control" name="cvv" placeholder='xxx' maxlength="3">
                 </div>
                 <div class="form-group" >
-                    <center><button class="btn btn-success">PAY ME</button></center>
+                    <center><button class="btn btn-success" style="font-family:Georgia;">PAY ME</button></center>
                 </div>
+            </div>
             </div>
             </form>
           
@@ -87,7 +86,7 @@ if(!isset($_SESSION['user']))
     $_SESSION['amount']=$amount;
     $_SESSION['date']=$date;
     header('location:bank.php');
-?>
+?><?php?>
 <script>
         $(document).ready(function() {
             $('#form1').bootstrapValidator({
