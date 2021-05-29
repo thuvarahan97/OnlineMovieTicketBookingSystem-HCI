@@ -1,5 +1,7 @@
 <?php include('header.php');?>
+
 </div>
+<style><?php include './css/D-Movie.css'; ?></style>
 <div class="content">
 	<div class="wrap">
 		<div class="content-top">
@@ -35,8 +37,8 @@
 			?>
                     
 				<div class="col-md-<?php echo $bootstrapColWidth; ?>" >
-					<div class="thumbnail" style="background-color:#F0F0F0" >
-						<div class="single">
+					<div class="thumbnail"  >
+						<div class="imgBox">
 						 
 						  	<a href="about.php?id=<?php echo $m['movie_id'];?>">
 							  <img style="width:100%" src="<?php echo $m['image'];?>"  />
@@ -44,7 +46,7 @@
 						</div>
 						<div class="movie-text">
 						  	<center>
-								 <h4 class="h-text"><a href="about.php?id=<?php echo $m['movie_id'];?>" style="text-decoration:none;font-family:Georgia;"><?php echo $m['movie_name'];?></a></h4>
+								 <h4 class="h-text" ><a id="hov" href="about.php?id=<?php echo $m['movie_id'];?>" ><?php echo $m['movie_name'];?></a></h4>
 							</center>
 						  	<!-- <label style="text-decoration:none;font-family:Georgia;">Cast:</label> 
 							<Span class="color2" style="text-decoration:none;font-family:Georgia;"><?php echo $m['cast'];?></span><br> -->
