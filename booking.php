@@ -11,7 +11,7 @@ if(!isset($_SESSION['user']))
 		<div class="content-top">
 				<div class="section group">
 					<div class="about span_1_of_2">	
-						<h3 style=" color:#000080; align:center"><?php echo $movie['movie_name']; ?></h3>
+						<h3 style=" color:#000080; align:center; background:#f0f0ff;"><?php echo $movie['movie_name']; ?></h3>
 							<div class="about-top">	
 								<div class="grid images_3_of_2">
 									<img src="<?php echo $movie['image']; ?>" alt=""/>

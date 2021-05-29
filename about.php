@@ -6,8 +6,8 @@
 	<div class="wrap">
 		<div class="content-top">
 				<div class="section group">
-					<div class="about span_1_of_2">	
-						<h3 style="color:#000080; font-size:25px;" class="text-center"><?php echo $movie['movie_name']; ?></h3>
+					<div class="about span_1_of_2" style ="color:#000080">
+						<h3 style="color:#000080; font-size:25px; background:#f0f0ff;" class="text-center"><?php echo $movie['movie_name']; ?></h3>
 							<div class="about-top">	
 								<div class="grid images_3_of_2">
 									<img src="<?php echo $movie['image']; ?>" alt=""/>
@@ -24,7 +24,7 @@
 							if(mysqli_num_rows($s))
 							{?>
 							<table class="table table-hover table-bordered text-center">
-								<h3 style="color:#000080;" class="text-center">Available Shows</h3>
+								<h3 style="color:#000080; background:#f0f0ff;" class="text-center">Available Shows</h3>
 
 								<thead>
 										<tr>
