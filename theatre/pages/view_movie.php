@@ -1,6 +1,63 @@
 <?php
 include('header.php');
 ?>
+<style>
+    #deleteShowModal .modal-content{
+        border-radius: 10px !important;
+    }
+    #deleteShowModal .modal-dialog {
+        width: 380px;
+    }
+    #deleteShowModal .modal-header {
+        background: red;
+        text-align: center;
+        color:#FFF;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        user-select: none;
+    }
+    #deleteShowModal .modal-body {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        user-select: none;
+    }
+  .delete_button {
+        width: 28px;
+        height: 28px;
+        border:none;
+        box-shadow: none;
+        margin: 0 3px;
+        background-color: #f50000;
+        color: white;
+        border-radius: 5px;
+    }
+    .delete_button:hover {
+        background-color: #fe1c1c;
+    }
+    .delete_button:focus {
+        background-color: #c70000;
+        outline: none;
+    }
+    .edit_button {
+        width: 28px;
+        height: 28px;
+        border:none;
+        box-shadow: none;
+        margin: 0 2px;
+        background-color: #007ff6;
+        color: white;
+        border-radius: 5px;
+    }
+    .edit_button:hover {
+        background-color: #349dff;
+    }
+    .edit_button:focus {
+        background-color: #267ac8;
+        outline: none;
+    }
+</style>
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -8,72 +65,92 @@ include('header.php');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Movies List
+        Movies
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="index"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Movies List</li>
-      </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box --> 
-      <div class="box">
-        <div class="box-body">
-            <div class="box box-primary">
-            <!-- /.box-header -->
-            <div class="box-body">
-              <?php include('../../msgbox.php');?>
-              <ul class="todo-list">
+        <div class="box">
+          
+        <div class="box-body" id="screendtls">
+          <?php
+            $sr=mysqli_query($con,"select * from tbl_movie");
+            if(mysqli_num_rows($sr))
+            {
+          ?>
+            <table class="table table-bordered table-hover">
+              <th class="col-md-1">ID</th>
+              <th class="col-md-2">Name</th>
+              <th class="col-md-1">Casts</th>
+              <th class="col-md-3">Synopsis</th>
+              <th class="col-md-1">Release Date</th>
+              <th class="col-md-1">Trailer URL</th>
+              <th class="col-md-1">Status</th>
+              <th class="col-md-3">Poster</th>
+              <th class="col-md-1">Action</th>
                  <?php 
-                        $qry7=mysqli_query($con,"select * from tbl_movie");
-                        if(mysqli_num_rows($qry7))
-                        {
-                        while($c=mysqli_fetch_array($qry7))
-                        {
-                        ?>
-                <li>
-                  <!-- drag handle -->
-                      <span class="handle">
-                        <i class="fa fa-film"></i>
-                        
-                      </span>
-                  <!-- checkbox -->
-                  <!-- todo text -->
-                  <span class="text"><?php echo $c['movie_name'];?></span>
-                  <!-- Emphasis label -->
-                  
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    
-                    <button class="fa fa-trash-o" onclick="del(<?php echo $c['movie_id'];?>)"></button>
-                  </div>
-                </li>
+                $sl=1;
+                while($row=mysqli_fetch_array($sr))
+                {
+                  ?>
+                  <tr id="<?php echo $row['movie_id'];?>">
+                    <td><?php echo $sl;?></td>
+                    <td><?php echo $row['movie_name'];?></td>
+                    <td><?php echo $row['cast'];?></td>
+                    <td><?php echo $row['desc'];?></td>
+                    <td><?php echo $row['release_date'];?></td>
+                    <td><b><a href="<?php echo $row['video_url'];?>"><?php echo $row['video_url'];?></a></b></td>
+                    <td><?php echo $row['status'];?></td>
+                    <td><img src="../../<?php echo $row['image'];?>" height="150px" width="100px"></td>
+                    <td><button data-toggle="modal" data-target="#view-modal2" type='button' class='delete_button'><i class='fa fa-trash'></i></button></td>
+ 
+
+                  </tr>
                   <?php
-                       }}
-                     ?>
-                      
-            </div>
-          </div>
+                  $sl++;
+                }
+                ?>
+            </table>
+            <?php
+            }
+            else
+            {
+              ?>
+              <button data-toggle="modal" data-target="#view-modal" id="getUser" class="btn btn-sm btn-info"><i class="fa fa-plus"></i> Add Screen</button>
+                    
+              <?php
+            }
+            ?>
         </div> 
         <!-- /.box-footer-->
       </div>
-      <!-- /.box -->
-
+       
+        
     </section>
     <!-- /.content -->
   </div>
   <?php
 include('footer.php');
 ?>
-<script>
-function del(m)
-    {
-        if (confirm("Are you want to delete this movie") == true) 
+<script type="text/javascript">
+    $(".delete_button").click(function(){
+        var id = $(this).parents("tr").attr("id");
+        if(confirm('Are you sure to remove this record ?'))
         {
-            window.location="del_movie.php?mid="+m;
-        } 
-    }
-    </script>
+            $.ajax({
+               url: 'del_movie.php',
+               type: 'GET',
+               data: {id: id},
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(data) {
+                    $("#"+id).remove();
+                    alert("Record removed successfully");  
+               }
+            });
+        }
+    });
+
+
+</script>
