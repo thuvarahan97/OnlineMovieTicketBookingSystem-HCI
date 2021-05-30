@@ -7,6 +7,7 @@ if(!isset($_SESSION['admin']))
 }
 date_default_timezone_set('Asia/Kolkata');
 include('../../config.php');
+$activePage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,9 @@ include('../../config.php');
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../dist/css/skins/skin-black.css">
+
+  <link rel="stylesheet" href="../../css/style_rajin.css" type="text/css" media="all" />
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +42,7 @@ include('../../config.php');
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -49,7 +52,7 @@ include('../../config.php');
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>O</b>BS</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>OMTBS</b></span>
+      <span class="logo-lg"style="font-family:verdana ;">OMTBS</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -61,35 +64,16 @@ include('../../config.php');
         <span class="icon-bar"></span>
       </a>
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="admin-icn.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">Admin</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="admin-icn.png" class="img-circle" alt="User Image">
+      <div class="navigation">
+      <a class="button" href="logout.php" onclick="return confirm('Are You sure you want to logout?');">
+      <img src="../../images/signout1.png">
+      
 
-                <p>
-                  Theatre Assistant
-                </p>
-              </li>
-              <li class="user-footer">
-                <div class="pull-right">
-                  <a href="logout.php" class="btn btn-default btn-flat">Logout</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
-        </ul>
+  
+  <div class="logout">LOGOUT</div>
+
+	</a>
+
       </div>
     </nav>
   </header>
@@ -105,36 +89,28 @@ include('../../config.php');
         </div>
         <div class="pull-left info">
           <p>Administrator</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="treeview">
+        
+        <li class="<?= ($activePage == 'index') ? 'navactive':''; ?>">
           <a href="index.php">
             <i class="fa fa-home"></i> <span>Home</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
+
         
-          <li class="treeview">
+          <li class="<?= ($activePage == 'add_theatre') ? 'navactive':''; ?>">
           <a href="add_theatre.php">
             <i class="fa fa-film"></i> <span>Add Theatre</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="<?= ($activePage == 'add_movie_news') ? 'navactive':''; ?>">
           <a href="add_movie_news.php">
-            <i class="fa fa-plus"></i> <span>Upcoming Movie News</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <i class="fa fa-file-text-o"></i> <span>Upcoming Movie News</span>
           </a>
         </li>
         
