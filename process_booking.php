@@ -53,14 +53,14 @@ if(!isset($_SESSION['user']))
                 </div>      
                 <div class="form-group">
                 <label class="control-label" style="font-family:Georgia;">Expiration date</label>
-                    <input type="date" class="form-control" name="date">
+                    <input type="date" id="date"class="form-control"min='1899-01-01' name="date">
                 </div>
                 <div class="form-group">
                 <label class="control-label" style="font-family:Georgia;">CVV</label>
-                    <input type="text" class="form-control" name="cvv" placeholder='xxx' maxlength="3">
+                    <input type="text" id="cvv" class="form-control" name="cvv" placeholder='xxx' maxlength="3">
                 </div>
                 <div class="form-group" >
-                    <center><button class="btn btn-success" style="font-family:Georgia;">PAY ME</button></center>
+                    <center><button class="btn btn-success" type="submit" style="font-family:Georgia;">PAY ME</button></center>
                 </div>
             </div>
             </div>
@@ -127,8 +127,35 @@ if(!isset($_SESSION['user']))
                 },regexp: {
                         regexp: /^[0-9 ]+$/,
                         message: 'Enter a valid cvv'
-                    } } }}
+                    } } }
+                    
+                }
+
+
             });
+       
+            $('#number').keyup(function() {
+                var $th = $(this);
+                $th.val( $th.val().replace(/[^0-9\s]/g, function(str) { return ''; } ) );
+             });
+             $('#cvv').keyup(function() {
+                var $th = $(this);
+                $th.val( $th.val().replace(/[^0-9]/g, function(str) { return ''; } ) );
+             });
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            if(dd<10){
+                    dd='0'+dd
+                } 
+                if(mm<10){
+                    mm='0'+mm
+                } 
+
+            today = yyyy+'-'+mm+'-'+dd;
+            document.getElementById("date").setAttribute("min", today);
+
             });
 
 </script>
