@@ -20,20 +20,21 @@ if(!isset($_SESSION['user']))
 		<div class="content-top">
 				<div class="section group">
 					<div class="about span_1_of_2" style ="color:#000000; align:center;">
-						<h3 style=" color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:26px; background:#23241d; text-align: center;"><?php echo $movie['movie_name']; ?></h3>
+						<h3 style=" color:#FFFFFF; font-size:26px; background:#23241d; text-align: center;"><?php echo $movie['movie_name']; ?></h3>
 							<div class="about-top">	
 								<div class="grid images_3_of_2">
 									<img src="<?php echo $movie['image']; ?>" alt=""/>
 								</div>
 								<div class="desc span_3_of_2">
-									<p class="p-link" style="color:#000000; font-size:15px"><b>Cast : </b><?php echo $movie['cast']; ?></p>
-									<p class="p-link" style="color:#000000; font-size:15px"><b>Release Date : </b><?php echo date('d-M-Y',strtotime($movie['release_date'])); ?></p>
-									<p style=" color:#000000; font-size:15px"><?php echo $movie['desc']; ?></p>
-									<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="watch_but">Watch Trailer</a>
+									<p class="p-link" style="color:#000000; font-size:17px;"><b>Cast : </b><?php echo $movie['cast']; ?></p>
+									<p class="p-link" style="color:#000000; font-size:17px;"><b>Release Date : </b><?php echo date('d-M-Y',strtotime($movie['release_date'])); ?></p>
+									<p style=" color:#000000; font-size:17px"><?php echo $movie['desc']; ?></p>
+									<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="watch_but" style="background:#C60506; width:40%; font-size:17px; text-align: center; align:center;">Watch Trailer</a>
 								</div>
 								<div class="clear"></div>
 							</div>
-							<table class="table table-hover table-bordered text-center">
+
+							<table class="table table-hover table-bordered text-center" style="color:#000000; font-size:17px;" >
 							<?php
 								$s=mysqli_query($con,"select * from tbl_shows where s_id='".$_SESSION['show']."'");
 								$shw=mysqli_fetch_array($s);
@@ -41,14 +42,14 @@ if(!isset($_SESSION['user']))
 									$t=mysqli_query($con,"select * from tbl_theatre where id='".$shw['theatre_id']."'");
 									$theatre=mysqli_fetch_array($t);
 									?>
-									<tr>
+									<tr >
 										<td class="col-md-6">
 											Theatre
 										</td>
 										<td>
 											<?php echo $theatre['name'].", ".$theatre['place'];?>
 										</td>
-										</tr>
+									</tr>
 										<tr>
 											<td>
 												Screen
@@ -118,13 +119,13 @@ if(!isset($_SESSION['user']))
 										<td>
 											Amount
 										</td>
-										<td id="amount" style="font-weight:bold;font-size:18px">
+										<td id="amount" style="font-weight:bold;font-size:17px">
 											Rs <?php echo $screen['charge'];?>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="2"><?php if($avl[0]==$screen['seats']){?><button type="button" class="btn btn-danger" style="width:100%">House Full</button><?php } else { ?>
-										<button class="btn btn-info" style="background:#C60506; color:#ffffff; font-size: 18px; width:100%;">Book Now</button>
+										<button class="btn btn-info" style="background:#C60506; color:#ffffff; font-size: 17px; width:100%;">Buy Tickets</button>
 										<?php } ?>
 										</form></td>
 									</tr>
