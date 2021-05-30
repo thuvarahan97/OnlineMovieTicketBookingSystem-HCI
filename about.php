@@ -7,7 +7,7 @@
 		<div class="content-top">
 				<div class="section group">
 					<div class="about span_1_of_2" style ="color:#000000; align:center;">
-						<h3 style="color:#000000; font-size:25px; background:#f0f0ff;" class="text-center"><?php echo $movie['movie_name']; ?></h3>
+						<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:26px; background:#23241d;"><?php echo $movie['movie_name']; ?></h3>
 							<div class="about-top">	
 								<div class="grid images_3_of_2">
 									<img src="<?php echo $movie['image']; ?>" alt=""/>
@@ -24,7 +24,7 @@
 							if(mysqli_num_rows($s))
 							{?>
 							<table class="table table-hover table-bordered text-center">
-								<h3 style="color:#000000; background:#f0f0ff;" class="text-center">Available Shows</h3>
+								<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:26px; background:#23241d;" class="text-center">Available Shows</h3>
 
 								<thead>
 										<tr>
@@ -75,7 +75,7 @@
 							else
 							{
 								?>
-								<h3 style="color:#444; font-size:23px;" class="text-center">Currently there are no any shows available!</h3>
+								<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:26px; background:#23241d; align:center;">Currently there are no any shows available!</h3>
 								<p class="text-center">Please check back later!</p>
 								<?php
 							}
