@@ -10,14 +10,17 @@ if(!isset($_SESSION['user']))
   <!-- =============================================== -->
   <?php
     include('form.php');
-    $frm=new formBuilder;      
+    $frm=new formBuilder;  
+    $qry2=mysqli_query($con,"select * from tbl_movie where movie_id='".$_SESSION['movie']."'");
+	$movie=mysqli_fetch_array($qry2);    
   ?> 
 </div>
 <div class="content">
 	<div class="wrap">
 		<div class="content-top">
+
             <div >
-		    	<center><h3 style="font-family:Georgia;">PAY HERE</h3></center>
+		    	<center><h3 style="font-family:Georgia;">Pay For <?php echo $movie['movie_name'] ?></h3></center>
             </div>
             
 			<form action="bank.php" method="post" id="form1">
