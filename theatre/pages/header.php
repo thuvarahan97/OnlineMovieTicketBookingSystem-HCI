@@ -7,6 +7,7 @@ if(!isset($_SESSION['theatre']))
 }
 date_default_timezone_set('Asia/Kolkata');
 include('../../config.php');
+$activePage = basename($_SERVER['PHP_SELF'], ".php");
 $th=mysqli_query($con,"select * from tbl_theatre where id='".$_SESSION['theatre']."'");
 $theatre=mysqli_fetch_array($th);
 ?>
@@ -32,7 +33,9 @@ $theatre=mysqli_fetch_array($th);
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+       <link rel="stylesheet" href="../dist/css/skins/skin-black-t.css">
+
+<link rel="stylesheet" href="../../css/style_rajin.css" type="text/css" media="all" />
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,7 +44,7 @@ $theatre=mysqli_fetch_array($th);
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -51,7 +54,7 @@ $theatre=mysqli_fetch_array($th);
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>T</b>A</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Theatre</b> Assistant</span>
+      <span class="logo-lg" style="font-family:verdana ;">Theatre Assistant</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -63,37 +66,17 @@ $theatre=mysqli_fetch_array($th);
         <span class="icon-bar"></span>
       </a>
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="cinema.png" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $theatre['name'];?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="cinema.png" class="img-circle" alt="User Image">
+      <div class="navigation">
+      <a class="button" href="logout.php" onclick="return confirm('Are You sure you want to logout?');">
+      <img src="../../images/signout1.png">
+  
+  <div class="logout">LOGOUT</div>
 
-                <p>
-                  Theatre Assistance
-                </p>
-              </li>
-              <li class="user-footer">
-                <div class="pull-right">
-                  <a href="logout.php" class="btn btn-default btn-flat">Logout</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
-        </ul>
+	</a>
+
       </div>
     </nav>
+   
   </header>
 
   <!-- Left side column. contains the sidebar -->
@@ -107,78 +90,53 @@ $theatre=mysqli_fetch_array($th);
         </div>
         <div class="pull-left info">
           <p><?php echo $theatre['name'];?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="treeview">
+      <li class="<?= ($activePage == 'index') ? 'navactive':''; ?>">
           <a href="index.php">
             <i class="fa fa-home"></i> <span>Home</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
         
-          <li class="treeview">
+        <li class="<?= ($activePage == 'add_movie') ? 'navactive':''; ?>">
           <a href="add_movie.php">
             <i class="fa fa-plus"></i> <span>Add Movie</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
 
-        <li class="treeview">
+        <li class="<?= ($activePage == 'view_movie') ? 'navactive':''; ?>">
           <a href="view_movie.php">
             <i class="fa fa-list-alt"></i> <span>View Movies</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
 
-        <li class="treeview">
+        <li class="<?= ($activePage == 'add_show') ? 'navactive':''; ?>">
           <a href="add_show.php">
             <i class="fa fa-ticket"></i> <span>Add Show</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="<?= ($activePage == 'todays_shows') ? 'navactive':''; ?>">
           <a href="todays_shows.php">
             <i class="fa fa-calendar"></i> <span>Todays Shows</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="<?= ($activePage == 'tickets') ? 'navactive':''; ?>">
           <a href="tickets.php">
-            <i class="fa fa-film"></i> <span>Todays Bookings</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+          <i class="fa fa-money"></i> <span>Todays Bookings</span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="<?= ($activePage == 'view_shows') ? 'navactive':''; ?>">
           <a href="view_shows.php">
             <i class="fa fa-eye"></i> <span>View Show</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="<?= ($activePage == 'add_theatre_2') ? 'navactive':''; ?>">
           <a href="add_theatre_2.php">
             <i class="fa fa-film"></i> <span>Theatre Details</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
         </li>
         

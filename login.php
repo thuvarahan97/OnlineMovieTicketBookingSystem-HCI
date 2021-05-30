@@ -1,4 +1,12 @@
 <?php include('header.php');?>
+<link rel="stylesheet" href="validation/dist/css/bootstrapValidator.css"/>
+    
+<script type="text/javascript" src="validation/dist/js/bootstrapValidator.js"></script>
+  <!-- =============================================== -->
+  <?php
+    include('form.php');
+    $frm=new formBuilder;      
+  ?> 
 </div>
 <div class="content">
 	<div class="wrap">
@@ -9,9 +17,10 @@
 				  <div class="panel-body">
 				  	<?php include('msgbox.php');?>
 				<p class="login-box-msg">Sign in to start your session</p>
-				<form action="process_login.php" method="post">
+				<form action="process_login.php" method="post" id="form1">
       <div class="form-group has-feedback">
-        <input name="Email" type="text" size="25" placeholder="Email" class="form-control" placeholder="Email"/>
+        <input name="Email" type="text" size="25" placeholder="Email" class="form-control"/>
+        <?php $frm->validate("Email",array("required","label"=>"Email","email")); // Validating form using form builder written in form.php ?>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -33,3 +42,6 @@
 	</div>
 <?php include('footer.php');?>
 </div>
+<script>
+        <?php $frm->applyvalidations("form1");?>
+    </script>
