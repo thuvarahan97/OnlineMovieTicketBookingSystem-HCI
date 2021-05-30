@@ -7,7 +7,7 @@
 		<div class="content-top">
 				<div class="section group">
 					<div class="about span_1_of_2" style ="color:#000000; align:center;">
-						<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:26px; background:#23241d;"><?php echo $movie['movie_name']; ?></h3>
+						<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:26px; background:#23241d; text-align: center;"><?php echo $movie['movie_name']; ?></h3>
 							<div class="about-top">	
 								<div class="grid images_3_of_2">
 									<img src="<?php echo $movie['image']; ?>" alt=""/>
