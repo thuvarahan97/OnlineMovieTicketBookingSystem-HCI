@@ -2,27 +2,7 @@
 include('header.php');
 ?>
 <style>
-    #deleteShowModal .modal-content{
-        border-radius: 10px !important;
-    }
-    #deleteShowModal .modal-dialog {
-        width: 380px;
-    }
-    #deleteShowModal .modal-header {
-        background: red;
-        text-align: center;
-        color:#FFF;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        user-select: none;
-    }
-    #deleteShowModal .modal-body {
-        padding-top: 15px;
-        padding-bottom: 15px;
-        user-select: none;
-    }
+     
   .delete_button {
         width: 28px;
         height: 28px;
@@ -40,23 +20,7 @@ include('header.php');
         background-color: #c70000;
         outline: none;
     }
-    .edit_button {
-        width: 28px;
-        height: 28px;
-        border:none;
-        box-shadow: none;
-        margin: 0 2px;
-        background-color: #007ff6;
-        color: white;
-        border-radius: 5px;
-    }
-    .edit_button:hover {
-        background-color: #349dff;
-    }
-    .edit_button:focus {
-        background-color: #267ac8;
-        outline: none;
-    }
+   
 </style>
   <!-- =============================================== -->
 
