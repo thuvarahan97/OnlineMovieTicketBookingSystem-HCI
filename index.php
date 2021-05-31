@@ -5,7 +5,12 @@ include('header.php');
 
 ?>
 
+
+<!--------------------------- Custom Styles - start ---------------------------->
 <link rel="stylesheet" href="css/style_thuva.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style_thuva_multi_carousel.css" type="text/css" media="all" />
+<!--------------------------- Custom Styles - end ------------------------------>
+
 
 <!---------------------------- Carousel Banner -start -------------------------------->
 <div id="bannerCarousel" class="carousel slide" data-ride="carousel">
@@ -13,7 +18,6 @@ include('header.php');
 	<ol class="carousel-indicators">
 		<li data-target="#bannerCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#bannerCarousel" data-slide-to="1"></li>
-		<li data-target="#bannerCarousel" data-slide-to="2"></li>
 	</ol>
 
 	<!-- Wrapper for slides -->
@@ -46,9 +50,138 @@ include('header.php');
 <!----------------------------- Carousel Banner - end ------------------------------->
 
 
+
+
+
 <div class="content">
 	<div class="wrap">
-		<div class="content-top">
+
+		<!----------------------------- Carousel Screening Movie List - start ------------------------->
+		<div class="nowshowing-movies-section">
+			<h2 class="custom-main-title">Films in Theaters</h2>
+			<div class="col-xs-12 col-md-12 col-centered">
+
+				<div id="movieCarousel_nowshowing" class="carousel movieCarousel slide" data-ride="carousel" data-type="multi" data-interval="false">
+					<div class="carousel-inner">
+						<?php
+						$today=date("Y-m-d");
+						$qry2=mysqli_query($con,"select * from  tbl_movie where status='0'");
+						
+						$first_row = true;
+						while($m=mysqli_fetch_array($qry2))
+						{
+						?>
+
+						<div class="item <?php if($first_row) { echo 'active'; $first_row = false; } ?>">
+							<div class="carousel-col">
+								<div class="block-box img-responsive">
+									<a href="about.php?id=<?php echo $m['movie_id'];?>">
+										<div class="movie-carousel-poster-box">
+											<img class="moviecarousel-poster-img" src="<?php echo $m['image'];?>" alt="<?php echo $m['movie_name'];?>">
+										</div>
+									</a>
+									<div class="moviecarousel-caption moviecarousel-poster-title">
+										<h3 class="movie-title"><a href="about.php?id=<?php echo $m['movie_id'];?>"><?php echo $m['movie_name'];?></a></h3>
+										<a class="btn btn-danger ticket-button" href="about.php?id=<?php echo $m['movie_id'];?>" role="button">Buy Tickets</a>
+										<br><br>
+										<div class="data">Release Date :<?php echo $m['release_date'];?></div>
+										<span style="text-color:#000" class="data"><strong>Cast :<?php echo $m['cast'];?></strong><br>
+										<span class="text-top">Description: <?php echo $m['desc'];?></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<?php
+						}
+						?>
+
+					</div>
+
+					<!-- Controls -->
+					<div class="left carousel-control">
+						<a href="#movieCarousel_nowshowing" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left custom-arrow" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+					</div>
+					<div class="right carousel-control">
+						<a href="#movieCarousel_nowshowing" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right custom-arrow" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!----------------------------- Carousel Screening Movie List - end --------------------------->
+
+
+		<div class="home-section-separator"></div>
+
+
+		<!----------------------------- Carousel Upcoming Movie List - start ------------------------->
+		<div class="upcoming-movies-section">
+			<h2 class="custom-main-title">Upcoming Movies</h2>
+			<div class="col-xs-12 col-md-12 col-centered">
+
+				<div id="movieCarousel_upcoming" class="carousel movieCarousel slide" data-ride="carousel" data-type="multi" data-interval="false">
+					<div class="carousel-inner">
+						<?php 
+						$qry3=mysqli_query($con,"SELECT * FROM tbl_news LIMIT 5");
+						
+						$first_row = true;
+						while($n=mysqli_fetch_array($qry3))
+						{
+						?>
+
+						<div class="item <?php if($first_row) { echo 'active'; $first_row = false; } ?>">
+							<div class="carousel-col">
+								<div class="block-box img-responsive">
+									<div class="movie-carousel-poster-box">
+										<img class="moviecarousel-poster-img" src="admin/<?php echo $n['attachment'];?>" alt="<?php echo $n['name'];?>">
+									</div>
+									<div class="moviecarousel-caption moviecarousel-poster-title">
+										<h3 class="movie-title"><?php echo $n['name'];?></h3>
+										<span style="text-color:#000" class="data"><strong>Cast :<?php echo $n['cast'];?></strong><br>
+										<div class="data">Release Date :<?php echo $n['news_date'];?></div>
+										<span class="text-top"><?php echo $n['description'];?></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<?php
+						}
+						?>
+
+					</div>
+
+					<!-- Controls -->
+					<div class="left carousel-control">
+						<a href="#movieCarousel_upcoming" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left custom-arrow" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+					</div>
+					<div class="right carousel-control">
+						<a href="#movieCarousel_upcoming" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right custom-arrow" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!----------------------------- Carousel Upcoming Movie List - end --------------------------->
+
+
+		<div class="home-section-separator"></div>
+
+		
+		<!-- <div class="content-top">
 				<div class="listview_1_of_3 images_1_of_3">
 					<h2 style="color:#555;">Upcoming Movies</h2>
 					<?php 
@@ -101,9 +234,18 @@ include('header.php');
 					
 					
 		</div>			
-		<?php include('movie_sidebar.php');?>
+		<?php include('movie_sidebar.php');?> -->
 	</div>
 </div>
+
+
+
+<!--------------------------- Custom Scripts - start ---------------------------------->
+<script src='js/script_thuva_multi_carousel.js'></script>
+<!--------------------------- Custom Scripts - start ---------------------------------->
+
+
+
 <?php include('footer.php');?>
 </div>
 <?php include('searchbar.php');?>

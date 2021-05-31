@@ -1,3 +1,4 @@
+/*----------------------- Banner Carousel ---------------------*/
 #bannerCarousel	.carousel-banner-img {
 	object-fit: cover !important;
 	width: -webkit-fill-available !important;
@@ -21,10 +22,101 @@
 }
 
 #bannerCarousel .carousel-banner-title a {
-	color: inherit;
-	font-style: inherit;
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: inherit;
+	color: inherit !important;
+	font-style: inherit !important;
+	font-family: inherit !important;
+	font-size: inherit !important;
+	font-weight: inherit !important;
     text-decoration: none !important; 
+}
+
+#bannerCarousel .carousel-banner-title a:hover {
+	color: red !important;
+}
+/*------------------------------------------------------------*/
+
+
+/*----------------------- Movie Carousel ---------------------*/
+.movieCarousel .movie-carousel-poster-box {
+	max-height: 425px !important;
+	overflow: hidden !important;
+}
+
+.movieCarousel .moviecarousel-poster-img {
+	object-fit: cover !important;
+	width: -webkit-fill-available !important;
+}
+
+.movieCarousel .moviecarousel-poster-img:hover {
+	opacity: 95%;
+	transition: transform .75s ease;
+	transform: scale(1.05);
+}
+
+.movieCarousel .moviecarousel-poster-title {
+	text-align: center !important;
+}
+
+.movieCarousel .moviecarousel-poster-title .movie-title a:hover {
+	color: red !important;
+}
+
+.movieCarousel .moviecarousel-poster-title a {
+	color: inherit !important;
+	font-style: inherit !important;
+	font-family: inherit !important;
+	font-size: inherit !important;
+	font-weight: inherit !important;
+    text-decoration: none !important; 
+}
+
+.no-horiz-padding {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+.custom-main-title {
+	color:#555 !important;
+	padding-left: 18px !important;
+	padding-right: 18px !important;
+	padding-bottom: 10px !important;
+}
+
+.movieCarousel a.ticket-button {
+	font-style: inherit !important;
+	font-family: inherit !important;
+	font-size: 17px !important;
+	font-weight: inherit !important;
+    text-decoration: none !important; 
+    color: white !important;
+}
+
+.movieCarousel a.ticket-button:hover {
+	background-color: rgb(128, 0, 0) !important;
+}
+
+.movieCarousel .custom-arrow {
+	border: 5px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
+    display: inline-table;
+	background-color: black;
+	margin-bottom: 10px;
+}
+
+.movieCarousel .custom-arrow:hover {
+	border: 5px solid red;
+	color: yellow !important;
+}
+
+.movieCarousel .carousel-control {
+    margin-bottom: 75px !important;
+}
+/*------------------------------------------------------------*/
+
+
+.home-section-separator {
+	border-bottom: 2px solid #d1d1d1;
+	margin: 50px 20px !important;
 }
