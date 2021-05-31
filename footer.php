@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" style="footer">
 	<div class="wrap">
 			<div class="footer-top">
 				<div class="col_1_of_4 span_1_of_4">
@@ -64,7 +64,7 @@
                 background-color:#b70929;
                 color:white;
 }
-
+ 
 </style>
 
 <script src="js/auto-complete.js"></script>

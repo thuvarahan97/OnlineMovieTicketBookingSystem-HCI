@@ -1,11 +1,13 @@
 <?php include('header.php');?>
+?>
 
 </div>
 <style><?php include './css/D-Movie.css'; ?></style>
 <div class="content">
 	<div class="wrap">
 		<div class="content-top">
-			<h1 style="color:#555;font-family:Georgia;">NOW SHOWING</h1>
+
+			<h1 style="color:#555;">NOW SHOWING</h1>
 			
 		<?php
 			

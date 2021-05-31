@@ -53,9 +53,14 @@ include('header.php');
               <?php $frm->validate("rdate",array("required","label"=>"Release Date")); // Validating form using form builder written in form.php ?>
             </div>
             <div class="form-group">
-              <label class="control-label">Image</label>
+              <label class="control-label">Poster</label>
               <input type="file" name="image" class="form-control"/>
               <?php $frm->validate("image",array("required","label"=>"Image")); // Validating form using form builder written in form.php ?>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Banner</label>
+              <input type="file" name="banner" class="form-control"/>
+              <?php $frm->validate("banner",array("required","label"=>"Banner")); // Validating form using form builder written in form.php ?>
             </div>
             <div class="form-group">
               <label class="control-label">Trailer Youtube Link</label>

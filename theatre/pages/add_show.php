@@ -73,7 +73,7 @@ include('header.php');
             </div>
             <div class="form-group">
               <label class="control-label">Start Date</label>
-              <input type="date" name="sdate" class="form-control"/>
+              <input required type="date" name="sdate" class="form-control" min="<?php echo date('Y-m-d'); ?>"/>
               <?php $frm->validate("sdate",array("required","label"=>"Start Date")); // Validating form using form builder written in form.php ?>
             </div>
             <div class="form-group">
