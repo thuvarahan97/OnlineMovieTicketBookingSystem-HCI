@@ -5,8 +5,8 @@ include('header.php');
 
 ?>
 
-
 <!--------------------------- Custom Styles - start ---------------------------->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/style_thuva.css" type="text/css" media="all" />
 <link rel="stylesheet" href="css/style_thuva_multi_carousel.css" type="text/css" media="all" />
 <!--------------------------- Custom Styles - end ------------------------------>

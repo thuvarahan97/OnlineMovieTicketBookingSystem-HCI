@@ -77,10 +77,10 @@
 	min-height: 350px !important;
 }
 
-.red {background: red;}
+.carousel-inner .item {
+  transition: .1s ease-out;
+}
 
-.blue {background: blue;}
-
-.green {background: green;}
-
-.yellow {background: yellow;}
+.carousel-inner .item.active {
+  transition: .1s ease-in;
+}
