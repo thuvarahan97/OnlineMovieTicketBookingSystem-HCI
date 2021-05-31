@@ -70,18 +70,6 @@
     text-decoration: none !important; 
 }
 
-.no-horiz-padding {
-	padding-right: 0 !important;
-	padding-left: 0 !important;
-}
-
-.custom-main-title {
-	color:#555 !important;
-	padding-left: 18px !important;
-	padding-right: 18px !important;
-	padding-bottom: 10px !important;
-}
-
 .movieCarousel a.ticket-button {
 	font-style: inherit !important;
 	font-family: inherit !important;
@@ -113,10 +101,67 @@
 .movieCarousel .carousel-control {
     margin-bottom: 75px !important;
 }
+
+/* @media (min-width: 768px) and (max-width: 991px) {
+	.movieCarousel .carousel-col {
+		margin-inline: 50px !important;
+		width: auto !important;
+	}
+} */
 /*------------------------------------------------------------*/
 
 
 .home-section-separator {
 	border-bottom: 2px solid #d1d1d1;
 	margin: 50px 20px !important;
+}
+
+/* .movie-trailers-section {
+	display: inline-block !important;
+} */
+
+.col_1_of_4 {
+	display: table-column !important;
+}
+
+.h-text a {
+	color: black !important;
+}
+
+.h-text a:hover {
+	color: red !important;
+}
+
+.no-horiz-padding {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+.custom-main-title {
+	color:#555 !important;
+	padding-left: 18px !important;
+	padding-right: 18px !important;
+	padding-bottom: 18px !important;
+}
+
+/* .movie-trailers-section .single {
+	height: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+	.movie-trailers-section .single {
+		height: 300px !important;
+	}
+} */
+
+.movie-trailers-section .movie-poster-img {
+	object-fit: cover !important;
+	width: -webkit-fill-available !important;
+	/* height: 100%; */
+}
+
+.movie-trailers-section .movie-poster-img:hover {
+	opacity: 95%;
+	transition: transform .75s ease;
+	transform: scale(1.05);
 }

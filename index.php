@@ -18,8 +18,8 @@ $qry1=mysqli_query($con,"SELECT movie_id, movie_name, banner FROM tbl_movie WHER
 $count1=mysqli_num_rows($qry1);
 if ($count1 > 0) {
 	$data_array1 = array();
-	while ($data = mysqli_fetch_array($qry1)) {
-		$data_array1[] = $data;
+	while ($data1 = mysqli_fetch_array($qry1)) {
+		$data_array1[] = $data1;
 	}
 ?>
 
@@ -86,15 +86,20 @@ if ($count1 > 0) {
 				$today=date("Y-m-d");
 				$qry2=mysqli_query($con,"select * from  tbl_movie where status='0'");
 				$count2 = mysqli_num_rows($qry2);
-				if ($count2 > 6)
+				if ($count2 > 0)
 				{
+
+				while($data2=mysqli_fetch_array($qry2))
+				{
+					$data_array2[] = $data2;
+				}
 				?>
 
 				<div id="movieCarousel_nowshowing" class="carousel movieCarousel slide" data-ride="carousel" data-type="multi" data-interval="false">
 					<div class="carousel-inner">
 						<?php
 						$first_row = true;
-						while($m=mysqli_fetch_array($qry2))
+						foreach($data_array2 as $m)
 						{
 						?>
 
@@ -163,8 +168,14 @@ if ($count1 > 0) {
 				<?php
 				$qry3=mysqli_query($con,"SELECT * FROM tbl_news LIMIT 5");
 				$count3 = mysqli_num_rows($qry3);
-				if ($count3 > 6)
+				if ($count3 > 0)
 				{
+
+				$data_array4 = array();
+				while($data3=mysqli_fetch_array($qry3))
+				{
+					$data_array3[] = $data3;
+				}
 				?>
 
 				<div id="movieCarousel_upcoming" class="carousel movieCarousel slide" data-ride="carousel" data-type="multi" data-interval="false">
@@ -172,7 +183,7 @@ if ($count1 > 0) {
 						<?php 
 						
 						$first_row = true;
-						while($n=mysqli_fetch_array($qry3))
+						foreach($data_array3 as $n)
 						{
 						?>
 
@@ -228,69 +239,55 @@ if ($count1 > 0) {
 
 		<div class="home-section-separator"></div>
 
-		<!----------------------------- Carousel Upcoming Movie List - start ------------------------->
+		<!-----------------------------Movie Trailers List - start ------------------------->
 		<div class="movie-trailers-section">
 			<h2 class="custom-main-title">Movie Trailers</h2>
 			<div class="col-xs-12 col-md-12 col-centered">
 
-			</div>
-		</div>
-
-		<!----------------------------- 
-		<!-- <div class="content-top">
-				<div class="listview_1_of_3 images_1_of_3">
-					<h2 style="color:#555;">Upcoming Movies</h2>
-					<?php 
-					$qry3=mysqli_query($con,"SELECT * FROM tbl_news LIMIT 5");
-					
-					while($n=mysqli_fetch_array($qry3))
-					{
-					?>
-				<div class="content-left">
-					<div class="listimg listimg_1_of_2">
-						 <img src="admin/<?php echo $n['attachment'];?>">
-					</div>
-					<div class="text list_1_of_2">
-						  <div class="extra-wrap">
-						  	<span style="text-color:#000" class="data"><strong><?php echo $n['name'];?></strong><br>
-						  	<span style="text-color:#000" class="data"><strong>Cast :<?php echo $n['cast'];?></strong><br>
-                                <div class="data">Release Date :<?php echo $n['news_date'];?></div>
-                                
-                                
-                                
-                                <span class="text-top"><?php echo $n['description'];?></span>
-                          </div>
-					</div>
-					<div class="clear"></div>
-				</div>
 				<?php
-				}
+				
+				$numOfCols = 4;
+				$rowCount = 0;
+				$bootstrapColWidth = 12 / $numOfCols;
+				$qry4=mysqli_query($con,"SELECT * FROM tbl_movie ORDER BY rand() LIMIT 8");
+				$count4 = mysqli_num_rows($qry4);
+				if ($count4 > 0)
+				{
+			
+				$data_array4 = array();
+				while($nm=mysqli_fetch_array($qry4))
+				{
+				if($rowCount % $numOfCols == 0) { ?> <div class="row" style="margin-bottom: 25px;"> <?php } 
+				$rowCount++;
 				?>
 				
-			
-		</div>				
-		<div class="listview_1_of_3 images_1_of_3">
-					<h2 style="color:#555;">Movie Trailers</h2>
-						<div class="middle-list">
-					<?php 
-					$qry4=mysqli_query($con,"SELECT * FROM tbl_movie ORDER BY rand() LIMIT 6");
-				
-					while($nm=mysqli_fetch_array($qry4))
-					{
-					?>
-					
-						<div class="listimg1">
-							 <a target="_blank" href="<?php echo $nm['video_url'];?>"><img src="<?php echo $nm['image'];?>" alt=""/></a>
-							 <a target="_blank" href="<?php echo $nm['video_url'];?>" class="link" style="text-decoration:none; font-size:14px;"><?php echo $nm['movie_name'];?></a>
+				<div class="col-sm-<?php echo $bootstrapColWidth; ?>" >
+
+					<div class="imageRow" style="width: 100%;">
+						<div class="single">
+							<a href="<?php echo $nm['video_url'];?>"><img class="movie-poster-img" style="width: 100%;" src="<?php echo $nm['image'];?>" alt="<?php echo $nm['movie_name'];?>" /></a>
 						</div>
-						<?php
-					}
-					?>
+						<div class="movie-text" style="text-align: center;">
+							<h4 class="h-text"><a href="<?php echo $nm['video_url'];?>" style="text-decoration:none;"><?php echo $nm['movie_name'];?></a></h4>
+						</div>
 					</div>
-					
-					
-		</div>			
-		<?php include('movie_sidebar.php');?> -->
+				</div>
+
+				<?php
+				if($rowCount % $numOfCols == 0) { ?> </div> <?php } 
+				} 
+				}
+				else
+				{
+					echo '<h4 style="text-align: center;">No movie trailers available.</h4>';
+				}
+				?>
+			</div>
+		</div>
+		<!----------------------------- Movie Trailers List - end ------------------------->
+
+		<div style="padding-top: 25px;"></div>
+		
 	</div>
 </div>
 
