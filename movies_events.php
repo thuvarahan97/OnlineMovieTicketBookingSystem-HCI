@@ -1,39 +1,60 @@
-<?php include('header.php');?>
+<?php include('header.php');
+ 
+?>
+
 </div>
+<style><?php include './css/D-Movie.css'; ?></style>
 <div class="content">
 	<div class="wrap">
 		<div class="content-top">
-			<center><h1 style="color:#555;">(NOW SHOWING)</h1></center>
+			<h1 style="color:#555;font-family:Georgia;">NOW SHOWING</h1>
 			
-			<?php
-          	 $today=date("Y-m-d");
-          	 $qry2=mysqli_query($con,"select * from  tbl_movie ");
-		
-          	  while($m=mysqli_fetch_array($qry2))
-                   {
-                    ?>
+		<?php
+			
+				$numOfCols = 4;
+				$rowCount = 0;
+				$bootstrapColWidth = 12 / $numOfCols;
+				$today=date("Y-m-d");
+				$qry2=mysqli_query($con,"select * from  tbl_movie ");
+			
+				while($m=mysqli_fetch_array($qry2))
+					{
+					if($rowCount % $numOfCols == 0) { ?> <div class="row"> <?php } 
+						$rowCount++;
+			?>
                     
-                    <div class="col_1_of_4 span_1_of_4">
-					<div class="imageRow">
-						  	<div class="single">
-						  		<?php
-						
-						?>
-						  		<a href="about.php?id=<?php echo $m['movie_id'];?>"><img src="<?php echo $m['image'];?>" alt="" /></a>
-						  	</div>
-						  	<div class="movie-text">
-						  		<h4 class="h-text"><a href="about.php?id=<?php echo $m['movie_id'];?>" style="text-decoration:none;"><?php echo $m['movie_name'];?></a></h4>
-						  		Cast: <Span class="color2" style="text-decoration:none;"><?php echo $m['cast'];?></span><br>
-						  		
-						  	</div>
-		  				</div>
+				<div class="col-md-<?php echo $bootstrapColWidth; ?>" >
+					<div class="thumbnail"  >
+						<div class="imgBox">
+						 
+						  	<a href="about.php?id=<?php echo $m['movie_id'];?>">
+							  <img id="img"style="width:100%" src="<?php echo $m['image'];?>"  />
+							</a>
+						</div>
+						<div class="movie-text">
+						  	<center>
+								 <h4 class="h-text" ><a id="hov" href="about.php?id=<?php echo $m['movie_id'];?>" ><?php echo $m['movie_name'];?></a></h4>
+							</center>
+						  	<!-- <label style="text-decoration:none;font-family:Georgia;">Cast:</label> 
+							<Span class="color2" style="text-decoration:none;font-family:Georgia;"><?php echo $m['cast'];?></span><br> -->
+							
+						</div>
+						<center>
+							<button type="button" class="btn btn-danger">
+							<a  id="button"href="about.php?id=<?php echo $m['movie_id'];?>" >
+								Buy Ticket
+							</a>
+							</button>
+						</center>
+		  			</div>
 		  		</div>
 		  		
-  	    <?php
-  	    	}
+  	    	<?php
+  	    	if($rowCount % $numOfCols == 0) { ?> </div> <?php } } 
   	    	?>
 			
 			</div>
 				<div class="clear"></div>		
 			</div>
-			<?php include('footer.php');?>
+		</div>
+	<?php include('footer.php');?>
