@@ -19,20 +19,22 @@ if(!isset($_SESSION['user']))
 	<div class="wrap">
 		<div class="content-top">
 
-            <div >
-		    	<center><h3 >Pay For <?php echo $movie['movie_name'] ?></h3></center>
-            </div>
+      <div >
+      <center><h3 >Pay For <?php echo $movie['movie_name'] ?></h3></center>
+      </div>
             
 			<form action="bank.php" method="post" id="form1">
             
 			<div class="col-md-4 col-md-offset-4">
             <div class="thumbnail" style="padding:20px;background-color:#F8F8F8">
 			    <div class="form-group">
+
                     <label class="control-label" >Name on Card</label>
                     <input type="text" class="form-control" name="name">
                 </div>
                 <div class="form-group">
                     <label class="control-label" >Card Number</label>
+
                      <input type="text" class="form-control" id="number" name="number" required title="Enter 16 digit card number"
                      placeholder='xxxx xxxx xxxx xxxx' maxlength='19'
                     >
@@ -55,6 +57,7 @@ if(!isset($_SESSION['user']))
                     </script>
                 </div>      
                 <div class="form-group">
+
                 <label class="control-label">Expiration date</label>
                     <input type="date" id="date"class="form-control"min='1899-01-01' name="date">
                 </div>
@@ -64,6 +67,7 @@ if(!isset($_SESSION['user']))
                 </div>
                 <div class="form-group" >
                     <center><button class="btn btn-success" type="submit" >PAY ME</button></center>
+
                 </div>
             </div>
             </div>
