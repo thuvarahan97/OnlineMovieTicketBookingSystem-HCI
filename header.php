@@ -50,6 +50,8 @@ date_default_timezone_set('Asia/Kathmandu');
 	</label>
 </nav>
 
+<div class="container"></div>
+
 <script>
 function myFunction() {
      if($('#hero-demo').val()=="")
