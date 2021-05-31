@@ -32,8 +32,8 @@ include('header.php');
               <table class="table table-condensed">
                 <tr>
                   <th class="col-md-1">No</th>
-                  <th class="col-md-3">Show Time</th>
-                  <th class="col-md-4">Screen</th>
+                  <th class="col-md-3">Screen</th>
+                  <th class="col-md-4">Show Time</th>
                   <th class="col-md-4">Movie</th>
                 </tr>
                 <?php 
