@@ -5,7 +5,7 @@ $('#movieCarousel_nowshowing[data-type="multi"] .item').each(function() {
 	}
 	next.children(':first-child').clone().appendTo($(this));
 
-	for (var i = 0; i < 3; i++) {
+	for (var i = 0; i < 4; i++) {
 		next = next.next();
 		if (!next.length) {
 			next = $(this).siblings(':first');
@@ -23,7 +23,7 @@ $('#movieCarousel_upcoming[data-type="multi"] .item').each(function() {
 	}
 	next.children(':first-child').clone().appendTo($(this));
 
-	for (var i = 0; i < 3; i++) {
+	for (var i = 0; i < 4; i++) {
 		next = next.next();
 		if (!next.length) {
 			next = $(this).siblings(':first');
