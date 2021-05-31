@@ -1,8 +1,8 @@
 a#hov:hover 
-{ COLOR: red;text-decoration:none; font-weight: bold;font-family:Georgia; }
+{ COLOR: red;text-decoration:none; font-weight: bold; }
 a#hov{
 color:black;
-font-family:Georgia;
+
 
 }
 .thumbnail{
