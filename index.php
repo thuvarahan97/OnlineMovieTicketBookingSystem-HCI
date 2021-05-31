@@ -74,8 +74,6 @@ if ($count1 > 0) {
 
 
 
-
-
 <div class="content">
 	<div class="wrap">
 
@@ -203,7 +201,15 @@ if ($count1 > 0) {
 
 		<div class="home-section-separator"></div>
 
-		
+		<!----------------------------- Carousel Upcoming Movie List - start ------------------------->
+		<div class="movie-trailers-section">
+			<h2 class="custom-main-title">Movie Trailers</h2>
+			<div class="col-xs-12 col-md-12 col-centered">
+			
+			</div>
+		</div>
+
+		<!----------------------------- 
 		<!-- <div class="content-top">
 				<div class="listview_1_of_3 images_1_of_3">
 					<h2 style="color:#555;">Upcoming Movies</h2>
