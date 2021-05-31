@@ -40,11 +40,9 @@
 							
 						</div>
 						<center>
-							<button type="button" class="btn btn-danger">
-							<a  id="button"href="about.php?id=<?php echo $m['movie_id'];?>" >
+							<a type="button" class="btn btn-danger"  id="button"href="about.php?id=<?php echo $m['movie_id'];?>" >
 								Buy Ticket
 							</a>
-							</button>
 						</center>
 		  			</div>
 		  		</div>

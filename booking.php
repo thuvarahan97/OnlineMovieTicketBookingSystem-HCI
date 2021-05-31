@@ -15,6 +15,11 @@ if(!isset($_SESSION['user']))
 
 
 	?>
+
+<!---- Custom Style -------->
+<style><?php include './css/style_thenusan.css'; ?></style>
+<!-------------------------->
+
 <div class="content">
 	<div class="wrap">
 		<div class="content-top">
@@ -29,7 +34,7 @@ if(!isset($_SESSION['user']))
 									<p class="p-link" style="color:#000000; font-size:17px;"><b>Cast : </b><?php echo $movie['cast']; ?></p>
 									<p class="p-link" style="color:#000000; font-size:17px;"><b>Release Date : </b><?php echo date('d-M-Y',strtotime($movie['release_date'])); ?></p>
 									<p style=" color:#000000; font-size:17px"><?php echo $movie['desc']; ?></p>
-									<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="watch_but" style="background:#C60506; width:40%; font-size:17px; text-align: center; align:center;">Watch Trailer</a>
+									<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="btn btn-danger watch_but" style="background:#C60506; width:40%; font-size:17px; text-align: center; align:center;">Watch Trailer</a>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -125,7 +130,7 @@ if(!isset($_SESSION['user']))
 									</tr>
 									<tr>
 										<td colspan="2"><?php if($avl[0]==$screen['seats']){?><button type="button" class="btn btn-danger" style="width:100%">House Full</button><?php } else { ?>
-										<button class="btn btn-info" style="background:#C60506; color:#ffffff; font-size: 17px; width:100%;">Buy Tickets</button>
+										<button class="btn btn-danger manual-btn-red" style="background:#C60506; color:#ffffff; font-size: 17px; width:100%;">Buy Tickets</button>
 										<?php } ?>
 										</form></td>
 									</tr>

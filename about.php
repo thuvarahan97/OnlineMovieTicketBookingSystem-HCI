@@ -2,6 +2,11 @@
 	$qry2=mysqli_query($con,"select * from tbl_movie where movie_id='".$_GET['id']."'");
 	$movie=mysqli_fetch_array($qry2);
 	?>
+
+<!---- Custom Style -------->
+<style><?php include './css/style_thenusan.css'; ?></style>
+<!-------------------------->
+
 <div class="content">
 	<div class="wrap">
 		<div class="content-top">
@@ -16,7 +21,7 @@
 									<p class="p-link" style="color:#000000; font-size:17px; "><b>Cast : </b><?php echo $movie['cast']; ?></p>
 									<p class="p-link" style="color:#000000; font-size:17px; "><b>Release Date : </b><?php echo date('d-M-Y',strtotime($movie['release_date'])); ?></p>
 									<p style="color:#000000; font-size:17px; "><?php echo $movie['desc']; ?></p>
-									<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="watch_but" style="background:#C60506; width:40%; font-size:17px; text-align: center; align:center;">Watch Trailer</a>
+									<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="btn btn-danger watch_but" style="background:#C60506; width:40%; font-size:17px; text-align: center; align:center;">Watch Trailer</a>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -27,7 +32,7 @@
 							<tr>
 							<h3 style="background:#ffffff;"></h3>
 							</tr>
-								<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:26px; background:#23241d;" class="text-center">Available Shows</h3>
+								<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:23px; background:#23241d; padding: 10px;" class="text-center">Available Shows</h3>
 
 								<thead>
 										<tr>
@@ -61,7 +66,7 @@
 												
 												?>
 												
-												<a href="check_login.php?show=<?php echo $shh['s_id'];?>&movie=<?php echo $shh['movie_id'];?>&theatre=<?php echo $shw['theatre_id'];?>" style="font-size:17px;"><button class="btn btn-default" style="font-size:17px;"><?php echo date('h:i A',strtotime($ttme['start_time']));?></button></a>
+												<a href="check_login.php?show=<?php echo $shh['s_id'];?>&movie=<?php echo $shh['movie_id'];?>&theatre=<?php echo $shw['theatre_id'];?>" style="font-size:17px;"><button class="btn btn-default time-btn-1" style="font-size:17px;"><?php echo date('h:i A',strtotime($ttme['start_time']));?></button></a>
 												<?php
 											}
 											?>
@@ -78,7 +83,7 @@
 							else
 							{
 								?>
-								<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:26px; background:#23241d; align:center;">Currently there are no any shows available!</h3>
+								<h3 style="color:#FFFFFF; font-family: 'Raleway-Light',Arial, Helvetica, sans-serif; font-size:23px; background:#23241d; align:center; padding:10px; text-align:center;">There are no shows available at the moment!</h3>
 								<p class="text-center">Please check back later!</p>
 								<?php
 							}
