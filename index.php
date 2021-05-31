@@ -265,10 +265,10 @@ if ($count1 > 0) {
 
 					<div class="imageRow" style="width: 100%;">
 						<div class="single">
-							<a href="<?php echo $nm['video_url'];?>"><img class="movie-poster-img" style="width: 100%;" src="<?php echo $nm['image'];?>" alt="<?php echo $nm['movie_name'];?>" /></a>
+							<a target="_blank" href="<?php echo $nm['video_url'];?>"><img class="movie-poster-img" style="width: 100%;" src="<?php echo $nm['image'];?>" alt="<?php echo $nm['movie_name'];?>" /></a>
 						</div>
 						<div class="movie-text" style="text-align: center;">
-							<h4 class="h-text"><a href="<?php echo $nm['video_url'];?>" style="text-decoration:none;"><?php echo $nm['movie_name'];?></a></h4>
+							<h4 class="h-text"><a target="_blank" href="<?php echo $nm['video_url'];?>" style="text-decoration:none;"><?php echo $nm['movie_name'];?></a></h4>
 						</div>
 					</div>
 				</div>
