@@ -66,7 +66,7 @@ extract($_POST);
 <p>
 
 
-<a class="tryAgain" href="complete_order.jsp">Go back</a> to merchant
+<a class="tryAgain" href="process_booking.php">Go back</a> to merchant
 </p>
 </fieldset>
 

@@ -1,0 +1,13 @@
+.watch_but {
+  display: inline-block;
+  background: #db9603;
+  position: relative;
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 11px;
+  color: #fef;
+  border-bottom: 1px solid #db9603;
+  border-right: 1px solid #db9603;
+  margin: 15px 0 0;
+  padding: 12px 14px 9px 10px;
+}
