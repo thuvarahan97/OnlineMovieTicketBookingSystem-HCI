@@ -13,28 +13,47 @@ include('header.php');
 
 
 <!---------------------------- Carousel Banner -start -------------------------------->
+<?php
+$qry1=mysqli_query($con,"SELECT B.movie_id, B.movie_name, A.banner_img FROM tbl_banners A INNER JOIN tbl_movie B ON A.movie_id = B.movie_id");
+$count1=mysqli_num_rows($qry1);
+if ($count1 > 0) {
+	$data_array1 = array();
+	while ($data = mysqli_fetch_array($qry1)) {
+		$data_array1[] = $data;
+	}
+?>
+
 <div id="bannerCarousel" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		<li data-target="#bannerCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#bannerCarousel" data-slide-to="1"></li>
+		<?php
+		$first_row1 = true;
+		$i1 = 0;
+		foreach($data_array1 as $d1)
+		{
+		?>
+		<li data-target="#bannerCarousel" data-slide-to="<?php echo $i1; $i1 += 1;?>" <?php if ($first_row1) { echo 'class="active"'; $first_row1 = false; } ?>></li>
+		<?php
+		} 
+		?>
 	</ol>
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner">
-		<div class="item active">
-			<img class="carousel-banner-img" src="images/banners/blackwidow.jpg" alt="Black Widow">
+		<?php
+		$first_row1 = true;
+		foreach($data_array1 as $d1)
+		{
+		?>
+		<div class="item <?php if ($first_row1) { echo 'active'; $first_row1 = false; } ?>">
+			<img class="carousel-banner-img" src="<?php echo $d1['banner_img'];?>" alt="<?php echo $d1['movie_name'];?>">
 			<div class="carousel-caption carousel-banner-title">
-				<h3><a href="about.php?id=11">Black Widow</a></h3>
+				<h3><a href="about.php?id=<?php echo $d1['movie_id'];?>"><?php echo $d1['movie_name'];?></a></h3>
 			</div>
 		</div>
-
-		<div class="item">
-			<img class="carousel-banner-img" src="images/banners/zsjl.jpg" alt="ZSJL">
-			<div class="carousel-caption carousel-banner-title">
-				<h3>Zack Snyder's Justic League</h3>
-			</div>
-		</div>
+		<?php
+		} 
+		?>
 	</div>
 
 	<!-- Left and right controls -->
@@ -47,6 +66,10 @@ include('header.php');
 		<span class="sr-only">Next</span>
 	</a>
 </div>
+
+<?php
+}
+?>
 <!----------------------------- Carousel Banner - end ------------------------------->
 
 
