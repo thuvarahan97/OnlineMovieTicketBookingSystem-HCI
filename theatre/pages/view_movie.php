@@ -51,6 +51,7 @@ include('header.php');
               <th class="col-md-1">Trailer URL</th>
               <th class="col-md-1">Status</th>
               <th class="col-md-3">Poster</th>
+              <th class="col-md-3">Banner</th>
               <th class="col-md-1">Action</th>
                  <?php 
                 $sl=1;
@@ -65,7 +66,8 @@ include('header.php');
                     <td><?php echo $row['release_date'];?></td>
                     <td><b><a href="<?php echo $row['video_url'];?>"><?php echo $row['video_url'];?></a></b></td>
                     <td><?php echo $row['status'];?></td>
-                    <td><img src="../../<?php echo $row['image'];?>" height="150px" width="100px"></td>
+                    <td><img src="../../<?php echo $row['image'];?>" height="150px" width="100px" style="width:100px;"></td>
+                    <td><?php if ($row['banner'] != "") { ?><img src="../../<?php echo $row['banner'];?>" height="50px" width="150px" style="width:150px;"><?php } else {echo "<i>Unavailable!</i>";} ?></td>
                     <td><button data-toggle="modal" data-target="#view-modal2" type='button' class='delete_button'><i class='fa fa-trash'></i></button></td>
  
 
