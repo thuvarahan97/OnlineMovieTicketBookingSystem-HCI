@@ -181,24 +181,6 @@ $theatre=mysqli_fetch_array($th);
             </span>
           </a>
         </li>
-
-        <li class="treeview">
-          <a href="add_banner.php">
-            <i class="fa fa-file-image-o"></i> <span>Add Banner</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-        </li>
-
-        <li class="treeview">
-          <a href="view_banner.php">
-            <i class="fa fa-picture-o"></i> <span>View Banners</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-        </li>
         
       </ul>
     </section>

@@ -14,7 +14,7 @@ include('header.php');
 
 <!---------------------------- Carousel Banner -start -------------------------------->
 <?php
-$qry1=mysqli_query($con,"SELECT B.movie_id, B.movie_name, A.banner_img FROM tbl_banners A INNER JOIN tbl_movie B ON A.movie_id = B.movie_id");
+$qry1=mysqli_query($con,"SELECT movie_id, movie_name, banner FROM tbl_movie WHERE banner IS NOT NULL AND banner != '' ORDER BY rand() LIMIT 5");
 $count1=mysqli_num_rows($qry1);
 if ($count1 > 0) {
 	$data_array1 = array();
@@ -46,7 +46,7 @@ if ($count1 > 0) {
 		{
 		?>
 		<div class="item <?php if ($first_row1) { echo 'active'; $first_row1 = false; } ?>">
-			<img class="carousel-banner-img" src="<?php echo $d1['banner_img'];?>" alt="<?php echo $d1['movie_name'];?>">
+			<img class="carousel-banner-img" src="<?php echo $d1['banner'];?>" alt="<?php echo $d1['movie_name'];?>">
 			<div class="carousel-caption carousel-banner-title">
 				<h3><a href="about.php?id=<?php echo $d1['movie_id'];?>"><?php echo $d1['movie_name'];?></a></h3>
 			</div>
@@ -82,12 +82,17 @@ if ($count1 > 0) {
 			<h2 class="custom-main-title">Films in Theaters</h2>
 			<div class="col-xs-12 col-md-12 col-centered">
 
+				<?php
+				$today=date("Y-m-d");
+				$qry2=mysqli_query($con,"select * from  tbl_movie where status='0'");
+				$count2 = mysqli_num_rows($qry2);
+				if ($count2 > 6)
+				{
+				?>
+
 				<div id="movieCarousel_nowshowing" class="carousel movieCarousel slide" data-ride="carousel" data-type="multi" data-interval="false">
 					<div class="carousel-inner">
 						<?php
-						$today=date("Y-m-d");
-						$qry2=mysqli_query($con,"select * from  tbl_movie where status='0'");
-						
 						$first_row = true;
 						while($m=mysqli_fetch_array($qry2))
 						{
@@ -134,6 +139,14 @@ if ($count1 > 0) {
 					</div>
 				</div>
 
+				<?php
+				}
+				else
+				{
+					echo '<h4 style="text-align: center;">No movies are currently screened.</h4>';
+				}
+				?>
+
 			</div>
 		</div>
 		<!----------------------------- Carousel Screening Movie List - end --------------------------->
@@ -147,10 +160,16 @@ if ($count1 > 0) {
 			<h2 class="custom-main-title">Upcoming Movies</h2>
 			<div class="col-xs-12 col-md-12 col-centered">
 
+				<?php
+				$qry3=mysqli_query($con,"SELECT * FROM tbl_news LIMIT 5");
+				$count3 = mysqli_num_rows($qry3);
+				if ($count3 > 6)
+				{
+				?>
+
 				<div id="movieCarousel_upcoming" class="carousel movieCarousel slide" data-ride="carousel" data-type="multi" data-interval="false">
 					<div class="carousel-inner">
 						<?php 
-						$qry3=mysqli_query($con,"SELECT * FROM tbl_news LIMIT 5");
 						
 						$first_row = true;
 						while($n=mysqli_fetch_array($qry3))
@@ -194,6 +213,14 @@ if ($count1 > 0) {
 					</div>
 				</div>
 
+				<?php
+				}
+				else
+				{
+					echo '<h4 style="text-align: center;">No upcoming movies available.</h4>';
+				}
+				?>
+
 			</div>
 		</div>
 		<!----------------------------- Carousel Upcoming Movie List - end --------------------------->
@@ -205,7 +232,7 @@ if ($count1 > 0) {
 		<div class="movie-trailers-section">
 			<h2 class="custom-main-title">Movie Trailers</h2>
 			<div class="col-xs-12 col-md-12 col-centered">
-			
+
 			</div>
 		</div>
 
