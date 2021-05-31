@@ -14,9 +14,14 @@
   color: #333;
   border-right: 1px solid #eee;
 }
+
+/*  change header color      */
 .skin-black .main-header .navbar {
-  background-color: #ffffff;
+  background-color:  #3e5964;
 }
+/*  */
+
+
 .skin-black .main-header .navbar .nav > li > a {
   color: #333333;
 }
@@ -33,14 +38,20 @@
 .skin-black .main-header .navbar .sidebar-toggle {
   color: #333333;
 }
+
+/*3 line bar*/
 .skin-black .main-header .navbar .sidebar-toggle:hover {
   color: #999999;
-  background: #ffffff;
+  background: #3e5964;
 }
 .skin-black .main-header .navbar > .sidebar-toggle {
-  color: #333;
+  color: rgb(235, 223, 223);
   border-right: 1px solid #eee;
 }
+/*  */
+
+
+
 .skin-black .main-header .navbar .navbar-nav > li > a {
   border-right: 1px solid #eee;
 }
@@ -49,15 +60,19 @@
   border-left: 1px solid #eee;
   border-right-width: 0;
 }
+
+/*logo  */
 .skin-black .main-header > .logo {
-  background-color: #ffffff;
-  color: #333333;
+  background-color: #3e5964;
+  color: #ffffff;
   border-bottom: 0 solid transparent;
   border-right: 1px solid #eee;
 }
 .skin-black .main-header > .logo:hover {
-  background-color: #fcfcfc;
+  background-color: #30454d;
 }
+/*logo  */
+
 @media (max-width: 767px) {
   .skin-black .main-header > .logo {
     background-color: #222222;
@@ -76,14 +91,18 @@
   background: transparent;
   box-shadow: none;
 }
+
+/* side nav bar */
 .skin-black .wrapper,
 .skin-black .main-sidebar,
 .skin-black .left-side {
-  background-color: #222d32;
+  background-color: #273136;
 }
+/*  */
+
 .skin-black .user-panel > .info,
 .skin-black .user-panel > .info > a {
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 .skin-black .sidebar-menu > li.header {
   color: #4b646f;
@@ -95,8 +114,10 @@
 .skin-black .sidebar-menu > li:hover > a,
 .skin-black .sidebar-menu > li.active > a {
   color: #ffffff;
-  background: #1e282c;
+  background: #3e5964;
   border-left-color: #ffffff;
+  width: 100%;
+  
 }
 .skin-black .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
@@ -156,3 +177,10 @@
   border-top-color: #222;
   border-left-color: #222;
 }
+
+.skin-black .sidebar-menu .navactive {
+  color: #ffffff;
+  background: #34444dd5;
+  border: ridge rgba(55, 70, 97, 0.6);
+}
+
