@@ -60,7 +60,7 @@ include('header.php');
             <div class="form-group">
               <label class="control-label">Banner</label>
               <input type="file" name="banner" class="form-control"/>
-              <?php $frm->validate("banner",array("required","label"=>"Image")); // Validating form using form builder written in form.php ?>
+              <?php $frm->validate("banner",array("required","label"=>"Banner")); // Validating form using form builder written in form.php ?>
             </div>
             <div class="form-group">
               <label class="control-label">Trailer Youtube Link</label>
