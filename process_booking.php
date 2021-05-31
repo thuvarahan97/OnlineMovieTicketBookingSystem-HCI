@@ -84,7 +84,7 @@ if(!isset($_SESSION['user']))
 <?php include('footer.php');?>
 
 </div>
-<?php
+<!-- <?php
     session_start();
     extract($_POST);
     include('config.php');
@@ -93,7 +93,7 @@ if(!isset($_SESSION['user']))
     $_SESSION['amount']=$amount;
     $_SESSION['date']=$date;
     header('location:bank.php');
-?><?php?>
+?><?php?> -->
 <script>
         $(document).ready(function() {
             $('#form1').bootstrapValidator({
